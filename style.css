@@ -1,0 +1,116 @@
+/* Général */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f8f9fc;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Titres et paragraphe */
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4d4f62;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4d4f62;
+}
+
+p {
+    /* max-width: 500px; */
+    color: #3f3f3f;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Conteneur principal en grille */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    grid-template-rows: auto auto; /* 2 lignes */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style des cartes */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 320px;
+    height: 180px;
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* Assignation des positions */
+.supervisor {
+    border-top: 5px solid #45d3d3;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.team-builder {
+    border-top: 5px solid #ea5353;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.karma {
+    border-top: 5px solid #fbbf24;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.calculator {
+    border-top: 5px solid #3b82f6;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.supervisor, .calculator {
+    transform: translateY(-80px);
+}
+
+/* Positionnement des icônes */
+.card img {
+    width: 40px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+/* Responsivité pour mobiles */
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .supervisor, .calculator, .karma, .team-builder {
+        transform: translateY(15px);
+    }
+}
