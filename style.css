@@ -1,3 +1,18 @@
+/* Définition des variables */
+:root {
+    --primary-color: #4d4f62;
+    --text-color: #3f3f3f;
+    --background-color: #f8f9fc;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --hover-shadow: rgba(0, 0, 0, 0.15);
+
+    /* Couleurs des bordures des cartes */
+    --supervisor-color: #45d3d3;
+    --team-builder-color: #ea5353;
+    --karma-color: #fbbf24;
+    --calculator-color: #3b82f6;
+}
+
 /* Général */
 body {
     font-family: 'Poppins', sans-serif;
@@ -5,29 +20,30 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #f8f9fc;
+    background-color: var(--background-color);
     padding: 20px;
     margin: 0;
 }
 
 /* Titres et paragraphe */
-h1 {
+h1, h2 {
     font-size: 24px;
     font-weight: 600;
-    color: #4d4f62;
+    color: var(--primary-color);
 }
 
 h2 {
-    font-size: 24px;
     font-weight: 700;
-    color: #4d4f62;
 }
 
 p {
-    /* max-width: 500px; */
-    color: #3f3f3f;
+    color: var(--text-color);
     font-size: 1rem;
     font-weight: 400;
+}
+
+.header{
+    margin: 50px auto 0;
 }
 
 /* Conteneur principal en grille */
@@ -37,7 +53,7 @@ p {
     grid-template-rows: auto auto; /* 2 lignes */
     gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto 0; 
 }
 
 /* Style des cartes */
@@ -45,47 +61,43 @@ p {
     background: white;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0px 4px 10px var(--card-shadow);
     width: 320px;
     height: 180px;
     text-align: left;
     position: relative;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* Effet au survol */
 .card:hover {
-    transform: translateY(-3px);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px var(--hover-shadow);
 }
 
-/* Assignation des positions */
+/* Assignation des couleurs */
 .supervisor {
-    border-top: 5px solid #45d3d3;
+    border-top: 5px solid var(--supervisor-color);
     grid-column: 1;
     grid-row: 2;
 }
 
 .team-builder {
-    border-top: 5px solid #ea5353;
+    border-top: 5px solid var(--team-builder-color);
     grid-column: 2;
     grid-row: 1;
 }
 
 .karma {
-    border-top: 5px solid #fbbf24;
+    border-top: 5px solid var(--karma-color);
     grid-column: 2;
     grid-row: 2;
 }
 
 .calculator {
-    border-top: 5px solid #3b82f6;
+    border-top: 5px solid var(--calculator-color);
     grid-column: 3;
     grid-row: 2;
-}
-
-.supervisor, .calculator {
-    transform: translateY(-80px);
 }
 
 /* Positionnement des icônes */
@@ -94,6 +106,10 @@ p {
     position: absolute;
     bottom: 15px;
     right: 15px;
+}
+
+.supervisor, .calculator {
+    transform: translateY(-100px); 
 }
 
 /* Responsivité pour mobiles */
@@ -110,7 +126,8 @@ p {
         padding: 15px;
     }
 
-    .supervisor, .calculator, .karma, .team-builder {
-        transform: translateY(15px);
+    .supervisor, .calculator {
+        transform: translateY(0px); 
     }
+    
 }
